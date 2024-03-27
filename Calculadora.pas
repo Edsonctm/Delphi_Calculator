@@ -20,7 +20,7 @@ type
     Soma: TButton;
     Button11: TButton;
     Button12: TButton;
-    Button13: TButton;
+    equals: TButton;
     Divide: TButton;
     Multiplica: TButton;
     Subtrai: TButton;
@@ -31,6 +31,8 @@ type
     procedure NumericButtonClick(Sender: TObject);
     procedure BasicOperatorButtonClick(Sender: TObject);
     function CheckOperatorButton(ButtonName: String): Integer;
+    procedure Calculate;
+    procedure equalsClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,8 +41,8 @@ type
 
 var
   Form1: TForm1;
-  ValorX: Double;
-  ValorY: Double;
+  ValorX: String;
+  ValorY: String;
   Operador: Integer;
 
 const
@@ -58,19 +60,26 @@ implementation
 
 procedure TForm1.NumericButtonClick(Sender: TObject);
 begin
-  if Operador > 0 then
-  begin
-    Operador := 0;
-    edVisor.Text := ''
-  end;
+//  if Operador > 0 then
+//  begin
+//    Operador := 0;
+//    edVisor.Text := ''
+//  end;
   edVisor.Text := edVisor.Text + TButton(Sender).Caption;
 end;
 
 procedure TForm1.BasicOperatorButtonClick(Sender: TObject);
 begin
-  ValorX := StrToFloat(edVisor.Text);
 
-  case CheckOperatorButton(TButton(Sender).Name)  of
+  if ValorX = '' then
+    ValorX := edVisor.Text
+  else
+  begin
+    ValorY := edVisor.Text;
+//    Calculate;
+  end;
+
+   case CheckOperatorButton(TButton(Sender).Name)  of
     0: Operador := ADICAO;
     1: Operador := SUBTRACAO;
     2: Operador := MULTIPLICACAO;
@@ -83,6 +92,41 @@ end;
 Function TForm1.CheckOperatorButton(ButtonName: String):Integer;
 begin
   result := AnsiIndexStr(ButtonName, ['Soma', 'Subtrai', 'Multiplica', 'Divide']);
+end;
+
+procedure TForm1.equalsClick(Sender: TObject);
+begin
+  calculate;
+end;
+
+procedure TForm1.Calculate;
+var
+  x: Double;
+  y: Double;
+  result: String;
+begin
+
+  x := StrToFloat(ValorX);
+  y := StrToFloat(Valory);
+
+
+  case Operador of
+    1: result := FloatToStr(x+y);
+    2: result := FloatToStr(x-y);
+    3: result := FloatToStr(x*y);
+    4:
+    begin
+      if y = 0 then
+        result := 'ERROR'
+      else
+        result := FloatToStr(x/y);
+    end;
+  end;
+
+  edVisor.Text := result;
+
+  ValorX := result;
+  ValorY := '';
 end;
 
 end.

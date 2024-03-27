@@ -191,7 +191,7 @@ object Form1: TForm1
     TabOrder = 11
     OnClick = NumericButtonClick
   end
-  object Button13: TButton
+  object equals: TButton
     Left = 140
     Top = 306
     Width = 40
@@ -204,6 +204,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 12
+    OnClick = equalsClick
   end
   object Divide: TButton
     Left = 186
