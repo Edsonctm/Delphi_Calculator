@@ -24,7 +24,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    OnClick = Button1Click
+    OnClick = NumericButtonClick
   end
   object Button2: TButton
     Left = 94
@@ -39,7 +39,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
-    OnClick = Button2Click
+    OnClick = NumericButtonClick
   end
   object Button3: TButton
     Left = 140
@@ -54,7 +54,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 2
-    OnClick = Button3Click
+    OnClick = NumericButtonClick
   end
   object Button4: TButton
     Left = 48
@@ -69,7 +69,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 3
-    OnClick = Button4Click
+    OnClick = NumericButtonClick
   end
   object Button5: TButton
     Left = 94
@@ -84,7 +84,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 4
-    OnClick = Button5Click
+    OnClick = NumericButtonClick
   end
   object Button6: TButton
     Left = 140
@@ -99,7 +99,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 5
-    OnClick = Button6Click
+    OnClick = NumericButtonClick
   end
   object Button7: TButton
     Left = 48
@@ -114,7 +114,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 6
-    OnClick = Button7Click
+    OnClick = NumericButtonClick
   end
   object Button8: TButton
     Left = 94
@@ -129,7 +129,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 7
-    OnClick = Button8Click
+    OnClick = NumericButtonClick
   end
   object Button9: TButton
     Left = 140
@@ -144,9 +144,9 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 8
-    OnClick = Button9Click
+    OnClick = NumericButtonClick
   end
-  object Button10: TButton
+  object Soma: TButton
     Left = 186
     Top = 260
     Width = 40
@@ -159,6 +159,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 9
+    OnClick = BasicOperatorButtonClick
   end
   object Button11: TButton
     Left = 94
@@ -173,6 +174,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 10
+    OnClick = NumericButtonClick
   end
   object Button12: TButton
     Left = 48
@@ -187,6 +189,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 11
+    OnClick = NumericButtonClick
   end
   object Button13: TButton
     Left = 140
@@ -202,7 +205,7 @@ object Form1: TForm1
     ParentFont = False
     TabOrder = 12
   end
-  object Button14: TButton
+  object Divide: TButton
     Left = 186
     Top = 122
     Width = 40
@@ -215,8 +218,9 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 13
+    OnClick = BasicOperatorButtonClick
   end
-  object Button15: TButton
+  object Multiplica: TButton
     Left = 186
     Top = 168
     Width = 40
@@ -229,8 +233,9 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 14
+    OnClick = BasicOperatorButtonClick
   end
-  object Button16: TButton
+  object Subtrai: TButton
     Left = 186
     Top = 214
     Width = 40
@@ -243,6 +248,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 15
+    OnClick = BasicOperatorButtonClick
   end
   object Button17: TButton
     Left = 48
@@ -290,7 +296,14 @@ object Form1: TForm1
     Left = 48
     Top = 76
     Width = 178
-    Height = 40
+    Height = 45
+    Alignment = taRightJustify
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -27
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 19
   end
 end
