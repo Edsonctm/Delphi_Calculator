@@ -48,6 +48,7 @@ var
   ValorX: String;
   ValorY: String;
   Operador: Integer;
+  LimparVisor: Boolean;
 
 const
   ADICAO = 1;
@@ -64,13 +65,11 @@ implementation
 
 procedure TForm1.NumericButtonClick(Sender: TObject);
 begin
-  if edVisor.Text = '0' then
+  if (edVisor.Text = '0') OR LimparVisor then
+  begin
     edVisor.Text := '';
-//  if Operador > 0 then
-//  begin
-//    Operador := 0;
-//    edVisor.Text := ''
-//  end;
+    LimparVisor := false;
+  end;
   edVisor.Text := edVisor.Text + TButton(Sender).Caption;
 end;
 
@@ -95,7 +94,7 @@ begin
   else
   begin
     ValorY := edVisor.Text;
-//    Calculate;
+    Calculate;
   end;
 
    case CheckOperatorButton(TButton(Sender).Name)  of
@@ -103,9 +102,9 @@ begin
     1: Operador := SUBTRACAO;
     2: Operador := MULTIPLICACAO;
     3: Operador := DIVISAO;
-    else ShowMessage('Invalid Operator');
   end;
 
+  LimparVisor := true;
 end;
 
 Function TForm1.CheckOperatorButton(ButtonName: String):Integer;
