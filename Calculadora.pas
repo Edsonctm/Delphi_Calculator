@@ -18,14 +18,14 @@ type
     Button8: TButton;
     Button9: TButton;
     Soma: TButton;
-    Button11: TButton;
-    Button12: TButton;
+    dotButton: TButton;
+    zeroButton: TButton;
     equals: TButton;
     Divide: TButton;
     Multiplica: TButton;
     Subtrai: TButton;
-    Button17: TButton;
-    Button18: TButton;
+    clearButton: TButton;
+    sqreButton: TButton;
     Button19: TButton;
     edVisor: TEdit;
     procedure NumericButtonClick(Sender: TObject);
@@ -33,6 +33,10 @@ type
     function CheckOperatorButton(ButtonName: String): Integer;
     procedure Calculate;
     procedure equalsClick(Sender: TObject);
+    procedure dotButtonClick(Sender: TObject);
+    procedure clearButtonClick(Sender: TObject);
+    procedure zeroButtonClick(Sender: TObject);
+    procedure sqreButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -60,12 +64,27 @@ implementation
 
 procedure TForm1.NumericButtonClick(Sender: TObject);
 begin
+  if edVisor.Text = '0' then
+    edVisor.Text := '';
 //  if Operador > 0 then
 //  begin
 //    Operador := 0;
 //    edVisor.Text := ''
 //  end;
   edVisor.Text := edVisor.Text + TButton(Sender).Caption;
+end;
+
+procedure TForm1.sqreButtonClick(Sender: TObject);
+begin
+  EdVisor.Text := FloatToStr(Sqrt(StrToFloat(EdVisor.Text)));
+end;
+
+procedure TForm1.zeroButtonClick(Sender: TObject);
+begin
+ if Edvisor.Text = '0' then
+  Exit;
+
+ Edvisor.Text := Edvisor.Text + '0';
 end;
 
 procedure TForm1.BasicOperatorButtonClick(Sender: TObject);
@@ -92,6 +111,21 @@ end;
 Function TForm1.CheckOperatorButton(ButtonName: String):Integer;
 begin
   result := AnsiIndexStr(ButtonName, ['Soma', 'Subtrai', 'Multiplica', 'Divide']);
+end;
+
+procedure TForm1.clearButtonClick(Sender: TObject);
+begin
+  ValorX := '';
+  ValorY := '';
+  EdVisor.Text := '0';
+end;
+
+procedure TForm1.dotButtonClick(Sender: TObject);
+begin
+  if Pos(',', edVisor.Text) <> 0 then
+    Exit;
+
+  edVisor.Text := edVisor.Text + ',';
 end;
 
 procedure TForm1.equalsClick(Sender: TObject);

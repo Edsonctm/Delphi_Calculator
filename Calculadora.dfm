@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Calculadora'
-  ClientHeight = 369
-  ClientWidth = 550
+  ClientHeight = 282
+  ClientWidth = 216
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,8 +12,8 @@ object Form1: TForm1
   Font.Style = []
   TextHeight = 15
   object Button1: TButton
-    Left = 48
-    Top = 260
+    Left = 16
+    Top = 192
     Width = 40
     Height = 40
     Caption = '1'
@@ -27,8 +27,8 @@ object Form1: TForm1
     OnClick = NumericButtonClick
   end
   object Button2: TButton
-    Left = 94
-    Top = 260
+    Left = 62
+    Top = 192
     Width = 40
     Height = 40
     Caption = '2'
@@ -42,8 +42,8 @@ object Form1: TForm1
     OnClick = NumericButtonClick
   end
   object Button3: TButton
-    Left = 140
-    Top = 260
+    Left = 108
+    Top = 192
     Width = 40
     Height = 40
     Caption = '3'
@@ -57,8 +57,8 @@ object Form1: TForm1
     OnClick = NumericButtonClick
   end
   object Button4: TButton
-    Left = 48
-    Top = 214
+    Left = 16
+    Top = 146
     Width = 40
     Height = 40
     Caption = '4'
@@ -72,8 +72,8 @@ object Form1: TForm1
     OnClick = NumericButtonClick
   end
   object Button5: TButton
-    Left = 94
-    Top = 214
+    Left = 62
+    Top = 146
     Width = 40
     Height = 40
     Caption = '5'
@@ -87,8 +87,8 @@ object Form1: TForm1
     OnClick = NumericButtonClick
   end
   object Button6: TButton
-    Left = 140
-    Top = 214
+    Left = 108
+    Top = 146
     Width = 40
     Height = 40
     Caption = '6'
@@ -102,8 +102,8 @@ object Form1: TForm1
     OnClick = NumericButtonClick
   end
   object Button7: TButton
-    Left = 48
-    Top = 168
+    Left = 16
+    Top = 100
     Width = 40
     Height = 40
     Caption = '7'
@@ -117,8 +117,8 @@ object Form1: TForm1
     OnClick = NumericButtonClick
   end
   object Button8: TButton
-    Left = 94
-    Top = 168
+    Left = 62
+    Top = 100
     Width = 40
     Height = 40
     Caption = '8'
@@ -132,8 +132,8 @@ object Form1: TForm1
     OnClick = NumericButtonClick
   end
   object Button9: TButton
-    Left = 140
-    Top = 168
+    Left = 108
+    Top = 100
     Width = 40
     Height = 40
     Caption = '9'
@@ -147,8 +147,8 @@ object Form1: TForm1
     OnClick = NumericButtonClick
   end
   object Soma: TButton
-    Left = 186
-    Top = 260
+    Left = 154
+    Top = 192
     Width = 40
     Height = 86
     Caption = '+'
@@ -161,12 +161,12 @@ object Form1: TForm1
     TabOrder = 9
     OnClick = BasicOperatorButtonClick
   end
-  object Button11: TButton
-    Left = 94
-    Top = 306
+  object dotButton: TButton
+    Left = 62
+    Top = 238
     Width = 40
     Height = 40
-    Caption = '.'
+    Caption = ','
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -174,11 +174,11 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 10
-    OnClick = NumericButtonClick
+    OnClick = dotButtonClick
   end
-  object Button12: TButton
-    Left = 48
-    Top = 306
+  object zeroButton: TButton
+    Left = 16
+    Top = 238
     Width = 40
     Height = 40
     Caption = '0'
@@ -189,11 +189,11 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 11
-    OnClick = NumericButtonClick
+    OnClick = zeroButtonClick
   end
   object equals: TButton
-    Left = 140
-    Top = 306
+    Left = 108
+    Top = 238
     Width = 40
     Height = 40
     Caption = '='
@@ -207,8 +207,8 @@ object Form1: TForm1
     OnClick = equalsClick
   end
   object Divide: TButton
-    Left = 186
-    Top = 122
+    Left = 154
+    Top = 54
     Width = 40
     Height = 40
     Caption = #247
@@ -222,8 +222,8 @@ object Form1: TForm1
     OnClick = BasicOperatorButtonClick
   end
   object Multiplica: TButton
-    Left = 186
-    Top = 168
+    Left = 154
+    Top = 100
     Width = 40
     Height = 40
     Caption = 'X'
@@ -237,8 +237,8 @@ object Form1: TForm1
     OnClick = BasicOperatorButtonClick
   end
   object Subtrai: TButton
-    Left = 186
-    Top = 214
+    Left = 154
+    Top = 146
     Width = 40
     Height = 40
     Caption = '-'
@@ -251,12 +251,12 @@ object Form1: TForm1
     TabOrder = 15
     OnClick = BasicOperatorButtonClick
   end
-  object Button17: TButton
-    Left = 48
-    Top = 122
+  object clearButton: TButton
+    Left = 16
+    Top = 54
     Width = 40
     Height = 40
-    Caption = 'OFF'
+    Caption = 'C'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -264,10 +264,11 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 16
+    OnClick = clearButtonClick
   end
-  object Button18: TButton
-    Left = 94
-    Top = 122
+  object sqreButton: TButton
+    Left = 62
+    Top = 54
     Width = 40
     Height = 40
     Caption = #8730
@@ -278,10 +279,11 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 17
+    OnClick = sqreButtonClick
   end
   object Button19: TButton
-    Left = 140
-    Top = 122
+    Left = 108
+    Top = 54
     Width = 40
     Height = 40
     Caption = '%'
@@ -294,8 +296,8 @@ object Form1: TForm1
     TabOrder = 18
   end
   object edVisor: TEdit
-    Left = 48
-    Top = 76
+    Left = 16
+    Top = 8
     Width = 178
     Height = 45
     Alignment = taRightJustify
@@ -306,5 +308,6 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 19
+    Text = '0'
   end
 end
