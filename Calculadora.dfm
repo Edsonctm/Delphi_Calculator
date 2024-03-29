@@ -281,7 +281,7 @@ object Form1: TForm1
     TabOrder = 17
     OnClick = sqreButtonClick
   end
-  object Button19: TButton
+  object percentButton: TButton
     Left = 108
     Top = 54
     Width = 40
@@ -294,6 +294,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 18
+    OnClick = percentButtonClick
   end
   object edVisor: TEdit
     Left = 16

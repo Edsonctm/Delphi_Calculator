@@ -26,7 +26,7 @@ type
     Subtrai: TButton;
     clearButton: TButton;
     sqreButton: TButton;
-    Button19: TButton;
+    percentButton: TButton;
     edVisor: TEdit;
     BackSpace: TButton;
     procedure NumericButtonClick(Sender: TObject);
@@ -40,6 +40,7 @@ type
     procedure sqreButtonClick(Sender: TObject);
     procedure atribuiValor;
     procedure BackSpaceClick(Sender: TObject);
+    procedure percentButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,6 +53,7 @@ var
   ValorY: String;
   Operador: Integer;
   LimparVisor: Boolean;
+  NovoValor: Boolean;
 
 const
   ADICAO = 1;
@@ -68,6 +70,7 @@ implementation
 
 procedure TForm1.NumericButtonClick(Sender: TObject);
 begin
+  NovoValor := true;
   if (edVisor.Text = '0') OR LimparVisor then
   begin
     edVisor.Text := '';
@@ -76,17 +79,58 @@ begin
   edVisor.Text := edVisor.Text + TButton(Sender).Caption;
 end;
 
+procedure TForm1.percentButtonClick(Sender: TObject);
+var
+  x, y: Double;
+  result: String;
+begin
+  atribuiValor;
+  if ValorY = '' then
+    Exit;
+
+  x := StrToFloat(ValorX);
+  y := StrToFloat(Valory);
+
+  case Operador of
+    1: result := FloatToStr(x + x * y / 100);
+    2: result := FloatToStr(x - x * y / 100);
+    3: result := FloatToStr(x * y / 100);
+    4:
+    begin
+      if y = 0 then
+        result := 'ERROR'
+      else
+        result := FloatToStr(x / (y / 100));
+    end;
+    else result := edVisor.Text;
+  end;
+
+  edVisor.Text := result;
+
+  ValorX := result;
+  ValorY := '';
+  LimparVisor := true;
+  NovoValor := false;
+end;
+
 procedure TForm1.sqreButtonClick(Sender: TObject);
 begin
   EdVisor.Text := FloatToStr(Sqrt(StrToFloat(EdVisor.Text)));
+  ValorX := EdVisor.Text;
 end;
 
 procedure TForm1.zeroButtonClick(Sender: TObject);
 begin
+  NovoValor := True;
   if Edvisor.Text = '0' then
   Exit;
 
- Edvisor.Text := Edvisor.Text + '0';
+  if LimparVisor then
+  begin
+    edVisor.Text := '';
+    LimparVisor := false;
+  end;
+  Edvisor.Text := Edvisor.Text + '0';
 end;
 
 procedure TForm1.BackSpaceClick(Sender: TObject);
@@ -101,6 +145,9 @@ begin
   oldValue := edVisor.Text;
   Delete(oldValue, Length(oldValue), 1);
   edVisor.Text := oldValue;
+  if ValorX <> '' then
+    ValorX := edVisor.Text;
+
 end;
 
 procedure TForm1.BasicOperatorButtonClick(Sender: TObject);
@@ -115,9 +162,11 @@ begin
     1: Operador := SUBTRACAO;
     2: Operador := MULTIPLICACAO;
     3: Operador := DIVISAO;
+    else Operador := -1;
   end;
 
   LimparVisor := true;
+  NovoValor := false;
 end;
 
 Function TForm1.CheckOperatorButton(ButtonName: String):Integer;
@@ -130,19 +179,25 @@ begin
   ValorX := '';
   ValorY := '';
   EdVisor.Text := '0';
+  Operador := -1;
 end;
 
 procedure TForm1.dotButtonClick(Sender: TObject);
 begin
-  if Pos(',', edVisor.Text) <> 0 then
+  if (Pos(',', edVisor.Text) <> 0) and not LimparVisor then
     Exit;
 
+  if limparvisor then edVisor.Text := '0';
+
   edVisor.Text := edVisor.Text + ',';
+  NovoValor := false;
+  limparvisor := false;
 end;
 
 procedure TForm1.equalsClick(Sender: TObject);
 begin
   atribuiValor;
+  NovoValor := false;
   if ValorY = '' then
     Exit;
   Calculate;
@@ -150,8 +205,7 @@ end;
 
 procedure TForm1.Calculate;
 var
-  x: Double;
-  y: Double;
+  x, y: Double;
   result: String;
 begin
 
@@ -170,6 +224,7 @@ begin
       else
         result := FloatToStr(x/y);
     end;
+    else result := edVisor.Text;
   end;
 
   edVisor.Text := result;
@@ -178,13 +233,11 @@ begin
   ValorY := '';
 end;
 
-//clicar várias vezes seguidas no operador; Trocar de operador; Percentual;
-
 procedure TForm1.atribuiValor;
 begin
   if ValorX = '' then
     ValorX := edVisor.Text
-  else
+  else if NovoValor then
   begin
     ValorY := edVisor.Text;
   end;
