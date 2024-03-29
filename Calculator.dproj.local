@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2024/03/26 21:10:51.238,=C:\Users\edson\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/03/26 21:15:43.063,C:\Projetos\Delphi\calculadora\Calculadora.pas=C:\Users\edson\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/03/26 21:15:43.063,C:\Projetos\Delphi\calculadora\Calculadora.dfm=C:\Users\edson\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2024/03/27 00:15:41.704,C:\Projetos\Delphi\calculadora\Calculator.dproj=C:\Users\edson\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+	<Transactions>
+    <Transaction>2024/03/26 21:10:51.000.238,=C:\Users\edson\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/03/26 21:15:43.000.063,C:\Users\edson\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=C:\Projetos\Delphi\calculadora\Calculadora.dfm</Transaction>
+    <Transaction>2024/03/26 21:15:43.000.063,C:\Users\edson\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=C:\Projetos\Delphi\calculadora\Calculadora.pas</Transaction>
+    <Transaction>2024/03/27 00:15:41.000.704,C:\Users\edson\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Projetos\Delphi\calculadora\Calculator.dproj</Transaction>
   </Transactions>
 </BorlandProject>

@@ -37,6 +37,7 @@ type
     procedure clearButtonClick(Sender: TObject);
     procedure zeroButtonClick(Sender: TObject);
     procedure sqreButtonClick(Sender: TObject);
+    procedure atribuiValor;
   private
     { Private declarations }
   public
@@ -80,7 +81,7 @@ end;
 
 procedure TForm1.zeroButtonClick(Sender: TObject);
 begin
- if Edvisor.Text = '0' then
+  if Edvisor.Text = '0' then
   Exit;
 
  Edvisor.Text := Edvisor.Text + '0';
@@ -88,14 +89,7 @@ end;
 
 procedure TForm1.BasicOperatorButtonClick(Sender: TObject);
 begin
-
-  if ValorX = '' then
-    ValorX := edVisor.Text
-  else
-  begin
-    ValorY := edVisor.Text;
-    Calculate;
-  end;
+  atribuiValor;
 
    case CheckOperatorButton(TButton(Sender).Name)  of
     0: Operador := ADICAO;
@@ -129,7 +123,7 @@ end;
 
 procedure TForm1.equalsClick(Sender: TObject);
 begin
-  calculate;
+  atribuiValor;
 end;
 
 procedure TForm1.Calculate;
@@ -162,4 +156,16 @@ begin
   ValorY := '';
 end;
 
+//clicar várias vezes seguidas no operador; Trocar de operador; Percentual;
+
+procedure TForm1.atribuiValor;
+begin
+  if ValorX = '' then
+    ValorX := edVisor.Text
+  else
+  begin
+    ValorY := edVisor.Text;
+    Calculate;
+  end;
+end;
 end.
