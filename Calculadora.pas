@@ -28,6 +28,7 @@ type
     sqreButton: TButton;
     Button19: TButton;
     edVisor: TEdit;
+    BackSpace: TButton;
     procedure NumericButtonClick(Sender: TObject);
     procedure BasicOperatorButtonClick(Sender: TObject);
     function CheckOperatorButton(ButtonName: String): Integer;
@@ -38,6 +39,7 @@ type
     procedure zeroButtonClick(Sender: TObject);
     procedure sqreButtonClick(Sender: TObject);
     procedure atribuiValor;
+    procedure BackSpaceClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -87,9 +89,26 @@ begin
  Edvisor.Text := Edvisor.Text + '0';
 end;
 
+procedure TForm1.BackSpaceClick(Sender: TObject);
+var
+  oldValue: String;
+begin
+  if Length(edVisor.Text) = 1 then
+  begin
+    edVisor.Text := '0';
+    exit;
+  end;
+  oldValue := edVisor.Text;
+  Delete(oldValue, Length(oldValue), 1);
+  edVisor.Text := oldValue;
+end;
+
 procedure TForm1.BasicOperatorButtonClick(Sender: TObject);
 begin
   atribuiValor;
+  if not(ValorY = '') then
+    Calculate;
+
 
    case CheckOperatorButton(TButton(Sender).Name)  of
     0: Operador := ADICAO;
@@ -124,6 +143,9 @@ end;
 procedure TForm1.equalsClick(Sender: TObject);
 begin
   atribuiValor;
+  if ValorY = '' then
+    Exit;
+  Calculate;
 end;
 
 procedure TForm1.Calculate;
@@ -165,7 +187,6 @@ begin
   else
   begin
     ValorY := edVisor.Text;
-    Calculate;
   end;
 end;
 end.

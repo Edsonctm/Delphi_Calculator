@@ -148,9 +148,9 @@ object Form1: TForm1
   end
   object Soma: TButton
     Left = 154
-    Top = 192
+    Top = 238
     Width = 40
-    Height = 86
+    Height = 40
     Caption = '+'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -208,7 +208,7 @@ object Form1: TForm1
   end
   object Divide: TButton
     Left = 154
-    Top = 54
+    Top = 100
     Width = 40
     Height = 40
     Caption = #247
@@ -223,7 +223,7 @@ object Form1: TForm1
   end
   object Multiplica: TButton
     Left = 154
-    Top = 100
+    Top = 146
     Width = 40
     Height = 40
     Caption = 'X'
@@ -238,7 +238,7 @@ object Form1: TForm1
   end
   object Subtrai: TButton
     Left = 154
-    Top = 146
+    Top = 192
     Width = 40
     Height = 40
     Caption = '-'
@@ -309,5 +309,20 @@ object Form1: TForm1
     ParentFont = False
     TabOrder = 19
     Text = '0'
+  end
+  object BackSpace: TButton
+    Left = 154
+    Top = 54
+    Width = 40
+    Height = 40
+    Caption = #11013
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 20
+    OnClick = BackSpaceClick
   end
 end
