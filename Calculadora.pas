@@ -54,6 +54,7 @@ var
   Operador: Integer;
   LimparVisor: Boolean;
   NovoValor: Boolean;
+  StatusError: Boolean;
 
 const
   ADICAO = 1;
@@ -70,6 +71,9 @@ implementation
 
 procedure TForm1.NumericButtonClick(Sender: TObject);
 begin
+  if StatusError then
+    exit;
+
   NovoValor := true;
   if (edVisor.Text = '0') OR LimparVisor then
   begin
@@ -84,6 +88,9 @@ var
   x, y: Double;
   result: String;
 begin
+  if StatusError then
+    exit;
+
   atribuiValor;
   if ValorY = '' then
     Exit;
@@ -115,12 +122,18 @@ end;
 
 procedure TForm1.sqreButtonClick(Sender: TObject);
 begin
+  if StatusError then
+    exit;
+
   EdVisor.Text := FloatToStr(Sqrt(StrToFloat(EdVisor.Text)));
   ValorX := EdVisor.Text;
 end;
 
 procedure TForm1.zeroButtonClick(Sender: TObject);
 begin
+  if StatusError then
+    exit;
+
   NovoValor := True;
   if Edvisor.Text = '0' then
   Exit;
@@ -137,6 +150,9 @@ procedure TForm1.BackSpaceClick(Sender: TObject);
 var
   oldValue: String;
 begin
+  if StatusError then
+    exit;
+
   if Length(edVisor.Text) = 1 then
   begin
     edVisor.Text := '0';
@@ -152,6 +168,9 @@ end;
 
 procedure TForm1.BasicOperatorButtonClick(Sender: TObject);
 begin
+  if StatusError then
+    exit;
+
   atribuiValor;
   if not(ValorY = '') then
     Calculate;
@@ -180,10 +199,14 @@ begin
   ValorY := '';
   EdVisor.Text := '0';
   Operador := -1;
+  StatusError := false;
 end;
 
 procedure TForm1.dotButtonClick(Sender: TObject);
 begin
+  if StatusError then
+    exit;
+
   if (Pos(',', edVisor.Text) <> 0) and not LimparVisor then
     Exit;
 
@@ -196,6 +219,9 @@ end;
 
 procedure TForm1.equalsClick(Sender: TObject);
 begin
+  if StatusError then
+    exit;
+
   atribuiValor;
   NovoValor := false;
   if ValorY = '' then
@@ -220,7 +246,10 @@ begin
     4:
     begin
       if y = 0 then
-        result := 'ERROR'
+      begin
+         result := 'ERROR';
+         StatusError := true;
+      end
       else
         result := FloatToStr(x/y);
     end;
